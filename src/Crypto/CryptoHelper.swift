@@ -7,7 +7,8 @@ public struct CryptoHelper {
         .AES256CFB: (32, 16),
         .CHACHA20: (32, 8),
         .SALSA20: (32, 8),
-        .RC4MD5: (16, 16)
+        .RC4MD5: (16, 16),
+        .AES256GCM: (32, 16)
         ]
 
     public static func getKeyLength(_ methodType: CryptoAlgorithm) -> Int {

@@ -18,7 +18,7 @@ open class CCCrypto: StreamCryptoProtocol {
     }
 
     public enum Mode {
-        case cfb, rc4
+        case cfb, rc4, gcm
 
         public func toCCMode() -> CCMode {
             switch self {
@@ -26,6 +26,8 @@ open class CCCrypto: StreamCryptoProtocol {
                 return CCMode(kCCModeCFB)
             case .rc4:
                 return CCMode(kCCModeRC4)
+            case .gcm:
+                return CCMode(11)
             }
         }
     }

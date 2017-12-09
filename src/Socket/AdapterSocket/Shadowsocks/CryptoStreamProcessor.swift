@@ -102,6 +102,13 @@ extension ShadowsocksAdapter {
                 case .encrypt:
                     return CCCrypto(operation: .encrypt, mode: .cfb, algorithm: .aes, initialVector: writeIV, key: key)
                 }
+            case .AES256GCM:
+                switch operation {
+                case .decrypt:
+                    return CCCrypto(operation: .decrypt, mode: .gcm, algorithm: .aes, initialVector: readIV, key: key)
+                case .encrypt:
+                    return CCCrypto(operation: .encrypt, mode: .gcm, algorithm: .aes, initialVector: writeIV, key: key)
+                }
             case .CHACHA20:
                 switch operation {
                 case .decrypt:
